@@ -1,0 +1,16 @@
+<h2>Detalle Parte</h2>
+
+<hr/>
+<div *ngIf="parte">
+  <div>
+    <label><b>Fecha: </b></label> {{parte.fecha}}
+  </div>
+  <div>
+    <label><b>Descripción: </b></label> {{parte.descripcion}}
+  </div>
+
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Parte List</button><br>

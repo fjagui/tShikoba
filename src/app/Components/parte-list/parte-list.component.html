@@ -1,0 +1,24 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Lista de Partes</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let parte of partes | async">
+          <td>{{parte.fecha}}</td>
+          <td>{{parte.descripcion}}</td>
+          <td><!--button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button-->
+              <button (click)="parteDetails(parte.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

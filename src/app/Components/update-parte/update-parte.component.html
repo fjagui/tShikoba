@@ -1,0 +1,16 @@
+<h3>Modifica Parte</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Fecha</label>
+      <input type="text" class="form-control" id="fecha" required [(ngModel)]="parte.fecha" name="fecha">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Descripcion</label>
+      <input type="text" class="form-control" id="descripcion" required [(ngModel)]="parte.descripcion" name="descripcion">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

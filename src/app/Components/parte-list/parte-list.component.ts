@@ -1,7 +1,7 @@
 import { ParteDetailsComponent } from 'src/app/Components/parte-details/parte-details.component';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Parte } from 'src/app/Models/parte'
+import { Parte } from 'src/app/Models/parte';
 import { ParteService } from 'src/app/Services/parte.service';
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
@@ -15,8 +15,9 @@ export class ParteListComponent implements OnInit {
  // partes: Parte[];
   partes: Observable<Parte[]>;
 
-  constructor(private parteService: ParteService,
-    private router: Router) {}
+  constructor(private parteService: ParteService, private router: Router) {
+
+  }
 
   ngOnInit() {
     this.reloadData();

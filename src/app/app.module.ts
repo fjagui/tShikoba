@@ -9,7 +9,27 @@ import { CreateParteComponent } from './Components/create-parte/create-parte.com
 import { ParteDetailsComponent } from './Components/parte-details/parte-details.component';
 import { ParteListComponent } from './Components/parte-list/parte-list.component';
 import { UpdateParteComponent } from './Components/update-parte/update-parte.component';
+// External Libs
+import {
+  GoogleApiModule,
+  NgGapiClientConfig,
+  NG_GAPI_CONFIG,
+} from "ng-gapi";
+import { LoginComponent } from './Components/login/login.component';
 
+let gapiClientConfig: NgGapiClientConfig = {
+  client_id: "981488324390-08e4tc9j2nr0g09f6jog7hbba8bdb8gk.apps.googleusercontent.com",
+  discoveryDocs: ["https://analyticsreporting.googleapis.com/$discovery/rest?version=v4"],
+  ux_mode: "popup",
+  redirect_uri: "http://localhost:4200/loged",
+  scope: [
+    "https://www.googleapis.com/auth/userinfo.profile",
+    "https://www.googleapis.com/auth/userinfo.email",
+    "https://www.googleapis.com/auth/gmail.labels",
+    "https://www.googleapis.com/auth/gmail.send",
+    "https://www.googleapis.com/auth/gmail.readonly"
+  ].join(" ")
+};
 
 @NgModule({
   declarations: [
@@ -18,6 +38,7 @@ import { UpdateParteComponent } from './Components/update-parte/update-parte.com
     ParteDetailsComponent,
     ParteListComponent,
     UpdateParteComponent,
+    LoginComponent,
 
   ],
   imports: [
@@ -25,6 +46,10 @@ import { UpdateParteComponent } from './Components/update-parte/update-parte.com
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    GoogleApiModule.forRoot({
+      provide: NG_GAPI_CONFIG,
+      useValue: gapiClientConfig
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
